@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import blog.views
+import blog.api
 
 urlpatterns = [
-    path('', blog.views.post_list, name='index'),
-    path('blog/<int:pk>', blog.views.post, name='blog_post'),
+    path('', blog.views.post_list),
+    path('blog/<int:pk>', blog.views.show_post, name='blog'),
+    path('api/upload', blog.api.post_with_files),
     path('admin/', admin.site.urls),
 ]
