@@ -5,8 +5,6 @@ import blog.mdext
 
 def post_list(request):
     posts = Post.objects.order_by('-pub_date')
-    for p in posts:
-        print(f"{p.pk=}")
     return render(request, 'bootstrap-variable-list.html', {'item_list': posts})
 
 def show_post(request, pk):
