@@ -5,9 +5,11 @@
 {% block content %}
 
 {% for item in item_list %}
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 18rem">
+    <div class="card-header">
+        <a href="{% url 'blog' pk=item.pk %}"><h5 class="card-title">{{ item.title }}</h5></a>
+    </div>
     <div class="card-body">
-        <a href="{% url 'blog' pk=item.pk %}"><h2 class="card-title">{{ item.title }}</h2></a>
         <p class="card-text"> {{ item.short }} </p>
     </div>
 </div>
