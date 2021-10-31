@@ -12,7 +12,7 @@ def show_post(request, pk):
         post = Post.objects.get(pk=pk)
         return render(request, 'bootstrap-variable.html', 
                 {'title': post.title,
-                 'content': markdown.markdown(post.text, extensions=['codehilite', 'fenced_code']),# blog.mdext.ResponsiveImgExt()]),
+                 'content': markdown.markdown(post.text, extensions=['codehilite', 'fenced_code', 'sane_lists']),# blog.mdext.ResponsiveImgExt()]),
                  'date': post.pub_date})
     except:
         return render(request, 'bootstrap-variable.html',
